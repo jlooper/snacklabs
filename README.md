@@ -2,7 +2,7 @@
 
 A set of Polymer elements, based on the Google Codelabs platform.
 
-## Dev setup
+## Development setup
 
 CD to the root of the project and `bower install` to get all dependencies. 
 
@@ -16,7 +16,7 @@ Fire up the server with `polyserve` command and point your browser to:
 
 Or to where the terminal guides you.
 
-## Development
+## How to create a new Snacklab
 
-You will be working in the `steps` folder. Add elements to your snacklab by creating pages in this folder, named appropriatly. Add those pages as well to `snacklab-elements.html` to be imported. 
+You can create your own Snacklabs, and after approval, they will be linked from NativeScriptSnacks.com. To create a new Snacklab, add a folder referencing the content of your tutorial, including an `index.html` and `snacklab-elements.html` file, in the `snacklabs` folder. Add step elements to your Snacklab by creating step pages in this folder, named appropriately. Add those pages as well to your folder's `snacklab-elements.html` file so that they are properly imported. Your Snacklab should have a linkable URL such as `<url>/snacklabs/flexbox` by the end of your development.
 
