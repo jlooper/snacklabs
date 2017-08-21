@@ -74,8 +74,38 @@ the License.
     The Home ActionBar contains the profile picture, the title, and an icon to tweet. We need some supplementary files before we can build this, so do the following:</p>
 
 <ol>
-    <li>Add images for the profile picture by creating a new images folder in the app folder, and adding to it the four files found here.</li>
+    <li>Add images for the profile picture by creating a new images folder in the app folder, and adding to it the four files found <a href="https://github.com/jlooper/snacklabs/tree/master/snacklabs/flexbox/images/cats">here</a>.</li>
+    <li>Add <a href="https://github.com/jlooper/snacklabs/blob/master/snacklabs/flexbox/fonts/edge-icons-Regular.ttf">this file</a> to the app/fonts folder</li>
 </ol>
+
+<p>Then, edit your app's css to view this new font. In app/app.scss add the following code under the .fa class:</p>
+
+<pre>
+.ei {
+  font-family: EdgeIcons, edge-icons-Regular;
+}
+.profile-image{
+  clip-path: circle(100% at 50% 50%); 
+  margin: 5;
+  padding: 5;
+}
+</pre>
+
+<p>Now, we can edit the app/tabs/home/home.component.html file to build our new ActionBar:
+
+<pre><code>
+&#x3C;ActionBar class=&#x22;action-bar&#x22;&#x3E;
+    &#x3C;ActionItem ios.position=&#x22;left&#x22; android.position=&#x22;left&#x22;&#x3E;
+        &#x3C;Image class=&#x22;profile-image&#x22; src=&#x22;~/images/k2.png&#x22;&#x3E;&#x3C;/Image&#x3E;
+    &#x3C;/ActionItem&#x3E;
+    &#x3C;Label text=&#x22;Home&#x22;&#x3E;&#x3C;/Label&#x3E;
+    &#x3C;ActionItem ios.position=&#x22;right&#x22;&#x3E;
+        &#x3C;Button class=&#x22;ei&#x22; text=&#x22;&#x26;#xf029;&#x22;&#x3E;&#x3C;/Button&#x3E;
+    &#x3C;/ActionItem&#x3E;
+&#x3C;/ActionBar&#x3E;
+</code></pre>
+
+You should now be able to see a nice ActionBar with a circular portrait, the title, and a button we will enable later to send Yowwls! Next, we'll populate the Home screen with cat check-ins.</p>
 
   </template>
   <script>
