@@ -14,6 +14,7 @@ License for the specific language governing permissions and limitations under
 the License.
 -->
 <link rel="import" href="../step-style.html">
+<link rel="import" href="../syntax-style.html">
 
 <dom-module id="step-3">
    <style include="step-style"></style>
@@ -41,6 +42,9 @@ the License.
       <p>When the files are in place, you will need to rebuild the app. It's easiest to do this from the command line. In Sidekick's General tab, 
         click on 'Open Shell', which will open a command prompt (on Mac, it's the Terminal, and on Windows, it's the Command Prompt). Type tns run ios or tns run android, depending
         on which system you are targeting. This will perform a clean install of the Firebase plugin and you'll be able to continue to livesync.</p>
+
+      <aside class="special"><p>If you want to run this app using Android's AVD emulator, you will need to use Google Play Services in the emulator image
+        that you set up. Follow <a href="https://developer.android.com/studio/run/managing-avds.html">these instructions</a> to do so. You may need to target this emulator by typing tns run android --device my-emulator-image-name.</p></aside>
 
       <p>Now, you need to edit your app code to complete the installation. In your code editor, find the app.module.ts file. Edit it to import the Firebase plugin at the top of the file:</p>
 
@@ -72,7 +76,7 @@ the License.
 
 <p>This is all you need to do to initialize Firebase in your NativeScript app!</p>
  
-<aside class="warning"><p>At this point on an iOS app, you may experience problems with 'entitlements'. 
+<aside class="warning"><p>At this point when attempting to run an iOS app on the iOS emulator, you may experience errors with 'entitlements'. 
   To fix this, follow the instructions above to add another plugin to your app: 
   'nativescript-entitlements'. Then, add a file to the App_Resources/iOS folder called app.entitlements. 
   In that file, add the following:</p>

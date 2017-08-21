@@ -1,0 +1,76 @@
+<!--
+Copyright (c) 2016 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy of
+the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations under
+the License.
+-->
+<link rel="import" href="../step-style.html">
+<link rel="import" href="../styntax-style.html">
+<dom-module id="step-4">
+   <style include="step-style"></style>
+   <style include="syntax-style"></style>
+
+  <template>
+    <p>Let's make this app look more like Twitter. First we will change some CSS styles.</p>
+    <p>As a reminder, Twitter's feed looks like this:</p>
+    <img src="images/9.png" style="border: 1px lightgray solid">
+    
+    <p>Replace the code in your app.scss file with the following code:</p>
+    <pre><code>
+      @import url("~/platform.css");
+
+      ActionBar {
+        background-color: white;
+        font-size: 25;
+        font-weight: bold;
+      }
+
+      .fa {
+        font-family: FontAwesome, fontawesome-webfont;
+      }
+
+      @import 'nativescript-theme-core/css/core.light.css';
+
+    </code></pre>
+
+    <p>Notice we have enabled the platform.css folders to be displayed on each platform (NativeScript understand that platform.ios.css will be shown only on iOS, and vice versa on Android).
+      Also, we edited the ActionBar styles and ensured that we are using FontAwesome fonts, whose plugin is already installed. Finally, we make use of the light core theme, which sets up some basic styles.</p>
+
+    <p>Next, we will edit the tabs. Twitter uses four tabs and no text, so replace the code in tabs/tabs.component.html with the following: </p>
+    <pre></code>
+&#x3C;TabView (selectedIndexChanged)=&#x22;onSelectedIndexChanged($event)&#x22;&#x3E;
+    &#x3C;StackLayout *tabItem=&#x22;{iconSource: getIconSource(&#x27;home&#x27;)}&#x22;&#x3E;
+        &#x3C;Home&#x3E;&#x3C;/Home&#x3E;
+    &#x3C;/StackLayout&#x3E;
+    &#x3C;StackLayout *tabItem=&#x22;{iconSource: getIconSource(&#x27;search&#x27;)}&#x22;&#x3E;
+        &#x3C;Search&#x3E;&#x3C;/Search&#x3E;
+    &#x3C;/StackLayout&#x3E;
+    &#x3C;StackLayout *tabItem=&#x22;{iconSource: getIconSource(&#x27;notifications&#x27;)}&#x22;&#x3E;
+        &#x3C;Featured&#x3E;&#x3C;/Featured&#x3E;
+    &#x3C;/StackLayout&#x3E;
+    &#x3C;StackLayout *tabItem=&#x22;{iconSource: getIconSource(&#x27;messages&#x27;)}&#x22;&#x3E;
+        &#x3C;Settings&#x3E;&#x3C;/Settings&#x3E;
+    &#x3C;/StackLayout&#x3E;
+&#x3C;/TabView&#x3E;
+    </code></pre>
+<p>When refreshing your emulator via livesync, you'll notice that now, only half your tabs show up. 
+    That's because we don't have 'notifications' and 'messages' icons. Let's add those, and refresh the other icons
+    to align the app with Twitter's icon style.</p>
+<p><b>Replace</b> the contents of app/App_Resources/iOS/tabIcons folder with the contents of <a href="images/ios/tabIcons">this folder</a>.</p>
+<p><b>Add</b> the contents of <a href="images/android/">this folder</a> to the matching folders of app/App_Resources/android.</p>
+
+  </template>
+  <script>
+    Polymer({
+      is: "step-4"});
+  </script>
+</dom-module>
