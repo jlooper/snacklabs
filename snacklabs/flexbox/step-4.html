@@ -22,7 +22,7 @@ the License.
   <template>
     <p>Let's make this app look more like Twitter. First we will change some CSS styles.</p>
     <p>As a reminder, Twitter's feed looks like this:</p>
-    <img src="images/9.png" style="border: 1px lightgray solid">
+    <img src="images/2.png">
     
     <p>Replace the code in your app.scss file with the following code:</p>
     <pre><code>
@@ -45,7 +45,7 @@ the License.
     <p>Notice we have enabled the platform.css folders to be displayed on each platform (NativeScript understand that platform.ios.css will be shown only on iOS, and vice versa on Android).
       Also, we edited the ActionBar styles and ensured that we are using FontAwesome fonts, whose plugin is already installed. Finally, we make use of the light core theme, which sets up some basic styles.</p>
 
-    <p>Next, we will edit the tabs. Twitter uses four tabs and no text, so replace the code in tabs/tabs.component.html with the following: </p>
+    <p>Next, we will edit the tabs. Twitter uses four tabs with no descriptive text, so replace the code in tabs/tabs.component.html with the following: </p>
     <pre></code>
 &#x3C;TabView (selectedIndexChanged)=&#x22;onSelectedIndexChanged($event)&#x22;&#x3E;
     &#x3C;StackLayout *tabItem=&#x22;{iconSource: getIconSource(&#x27;home&#x27;)}&#x22;&#x3E;
@@ -67,6 +67,15 @@ the License.
     to align the app with Twitter's icon style.</p>
 <p><b>Replace</b> the contents of app/App_Resources/iOS/tabIcons folder with the contents of <a href="https://github.com/jlooper/snacklabs/tree/master/snacklabs/flexbox/images/ios/tabIcons">this folder</a>.</p>
 <p><b>Add</b> the contents of <a href="https://github.com/jlooper/snacklabs/tree/master/snacklabs/flexbox/images/android">this folder</a> to the matching folders of app/App_Resources/android.</p>
+<p>Rebuild your app by pressing ctrl-c to exit livesync, then restart it by typing tns run ios or tns run android. You'll see your fresh new icon tabs!</p>
+<p>Since we edited the code above, we now have lost the title on our ActionBar! Let's fix that.</p>
+<hr>
+<p>The ActionBar in the Twitter app differs on each page, so we will build new ActionBars for each separate component.  
+    The Home ActionBar contains the profile picture, the title, and an icon to tweet. We need some supplementary files before we can build this, so do the following:</p>
+
+<ol>
+    <li>Add images for the profile picture by creating a new images folder in the app folder, and adding to it the four files found here.</li>
+</ol>
 
   </template>
   <script>
