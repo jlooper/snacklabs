@@ -20,7 +20,123 @@ the License.
    <style include="syntax-style"></style>
 
   <template>
-    here we go
+    <p>Now that we have our tabs and ActionBar built, let's build the inner boxes which hold the cats' 'yowwls'. 
+      We can do this using Flexbox layouts. Flexbox is just one of the ways you could layout this interface; learn more 
+      information about NativeScript layouts <a href="">here</a> and Flexbox itself <a href="">here</a> and <a href="http://www.flexboxfroggy.com">here</a>.
+    </p>
+    <p>
+      First, create the XML markup to hold a yowwl. In app/tabs/home/home.component.html, add the following code under the ActionBar:
+    </p>
+    <pre>
+      <code>
+&#x3C;ScrollView&#x3E;
+    
+    &#x3C;StackLayout&#x3E;
+        
+        &#x3C;FlexboxLayout class=&#x22;container&#x22;&#x3E;
+
+            &#x3C;Image class=&#x22;column&#x22; src=&#x22;~/images/k2&#x22; width=&#x22;120&#x22; height=&#x22;75&#x22;&#x3E;&#x3C;/Image&#x3E;
+
+            &#x3C;FlexboxLayout class=&#x22;column&#x22;&#x3E;
+
+                &#x3C;FlexboxLayout class=&#x22;row pad&#x22; justifyContent=&#x22;space-between&#x22;&#x3E;
+                    &#x3C;Label class=&#x22;bold&#x22; text=&#x22;A Fluffy Cat&#x22;&#x3E;&#x3C;/Label&#x3E;
+                    &#x3C;Label class=&#x22;darkgrey&#x22; text=&#x22;@mrfluffer&#x22;&#x3E;&#x3C;/Label&#x3E;
+                    &#x3C;Button class=&#x22;fa lightgrey tiny&#x22; text=&#x22;&#x26;#xf111;&#x22;&#x3E;&#x3C;/Button&#x3E;
+                    &#x3C;Label class=&#x22;darkgrey&#x22; text=&#x22;2h&#x22;&#x3E;&#x3C;/Label&#x3E;
+                    &#x3C;Button class=&#x22;fa lightgrey small&#x22; text=&#x22;&#x26;#xf078;&#x22;&#x3E;&#x3C;/Button&#x3E;
+                &#x3C;/FlexboxLayout&#x3E;
+
+                &#x3C;!-- yowl --&#x3E;
+                &#x3C;Label class=&#x22;row regular&#x22; textWrap=&#x22;true&#x22; text=&#x22;Feeling really hungry right now. Could use some nice wet food! Where&#x27;s my human?&#x22;&#x3E;&#x3C;/Label&#x3E;
+                        
+            &#x3C;/FlexboxLayout&#x3E;
+        
+        &#x3C;/FlexboxLayout&#x3E;
+    
+    &#x3C;/StackLayout&#x3E;
+
+&#x3C;/ScrollView&#x3E;
+      </code>
+    </pre>
+   <p>Here, we have created a ScrollView with a StackLayout inside. This will allow us to show a large number of stacked yowwls in a scrolling interface.</p> 
+   <p>Next, we added a FlexboxLayout tag to begin laying out the yowwl iself. This container FlexboxLayout has another layout inside that provides a series of columns.</p>
+   <p>Then, we added two rows - one for the header content of the yowwl (name, username, time of yowwl, and some icons) and the text underneath, as per Twitter's design.</p>
+   <p>If you run the app at this point, you'll notice it doesn't look very good. That's because we need to complete our layout with some CSS styling. In app.scss, add the following:</p>
+  <pre>
+    .container {
+      border-bottom-width: 1;
+      border-color: lightgray;
+      align-items: flex-start;
+      padding: 5;
+    }
+
+    .row {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+    }
+
+    .column {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .pad {
+      padding-top: 10;
+      padding-bottom: 10;
+    }
+
+    .bold {
+      font-size: 15;
+      font-weight: bold;
+    }
+
+    .tiny {
+      font-size: 5;
+    }
+
+    .small {
+      font-size: 13;
+    }
+
+    .regular {
+      font-size: 15;
+    }
+
+    .large {
+      font-size: 20;
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .lightgrey {
+      color: lightgray;
+    }
+
+    .darkgrey {
+      color: darkgray;
+    }
+  </pre>
+
+<p>Here, we have added styles to allow the FlexboxLayout to flow into smooth columns. We need to add one more row of buttons, however, to complete the layout. In app/tabs/home.component.html, add the following code under the Label where the yowwl resides:</p>
+
+<pre>
+  <code>
+    &#x3C;FlexboxLayout class=&#x22;row pad&#x22;&#x3E;
+      &#x3C;Button width=&#x22;25%&#x22; text=&#x22;&#x26;#xf005;&#x22; class=&#x22;ei left darkgrey&#x22;&#x3E;&#x3C;/Button&#x3E;
+      &#x3C;Button width=&#x22;25%&#x22; text=&#x22;&#x26;#xf006;&#x22; class=&#x22;ei left darkgrey&#x22;&#x3E;&#x3C;/Button&#x3E;
+      &#x3C;Button width=&#x22;25%&#x22; text=&#x22;&#x26;#xf015;&#x22; class=&#x22;ei left darkgrey&#x22;&#x3E;&#x3C;/Button&#x3E;
+      &#x3C;Button width=&#x22;25%&#x22; text=&#x22;&#x26;#xf054;&#x22; class=&#x22;ei left darkgrey&#x22;&#x3E;&#x3C;/Button&#x3E;
+    &#x3C;/FlexboxLayout&#x3E;
+  </code>
+</pre>
+
+<p>Now, you have created a nice layout to hold yowwls, and while it's hard-coded and the buttons don't function, in the next section, we'll wire it up to our Firebase database so that by pressing the top left 'write' button, a yowwl will 
+  be written to the database and the stacked ScrollView will be populated.</p>
+
   </template>
   <script>
     Polymer({
