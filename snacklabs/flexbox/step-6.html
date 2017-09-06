@@ -137,12 +137,12 @@ export class Yowl {
 Then, edit the Flexbox layout block that contains the text to enable dynamic data:
 
 <pre><code>
-  &#x3C;FlexboxLayout class=&#x22;row pad&#x22; justifyContent=&#x22;space-between&#x22;&#x3E;
-    &#x3C;Label class=&#x22;bold&#x22; [text]=&#x22;yowl.name&#x22;&#x3E;&#x3C;/Label&#x3E;
-    &#x3C;Label class=&#x22;darkgrey&#x22; [text]=&#x22;&#x27;@&#x27;+yowl.username&#x22;&#x3E;&#x3C;/Label&#x3E;
-    &#x3C;Button class=&#x22;fa lightgrey tiny&#x22; text=&#x22;&#x26;#xf111;&#x22;&#x3E;&#x3C;/Button&#x3E;
-    &#x3C;Label class=&#x22;darkgrey&#x22; text=&#x22;{{yowl.date | date:&#x27;mm&#x27;}} m&#x22;&#x3E;&#x3C;/Label&#x3E;
-    &#x3C;Button class=&#x22;fa lightgrey small&#x22; text=&#x22;&#x26;#xf078;&#x22;&#x3E;&#x3C;/Button&#x3E;
+  &#x3C;FlexboxLayout class=&#x22;row pad&#x22;&#x3E;
+    &#x3C;Label width=&#x22;30%&#x22; class=&#x22;bold&#x22; [text]=&#x22;yowl.name&#x22;&#x3E;&#x3C;/Label&#x3E;
+    &#x3C;Label width=&#x22;30%&#x22; class=&#x22;darkgrey&#x22; [text]=&#x22;&#x27;@&#x27;+yowl.username&#x22;&#x3E;&#x3C;/Label&#x3E;
+    &#x3C;Label width=&#x22;10%&#x22; class=&#x22;fa lightgrey tiny&#x22; text=&#x22;&#x26;#xf111;&#x22;&#x3E;&#x3C;/Label&#x3E;
+    &#x3C;Label width=&#x22;20%&#x22; class=&#x22;darkgrey small&#x22; text=&#x22;{{yowl.date | date:&#x27;mm&#x27;}} m&#x22;&#x3E;&#x3C;/Label&#x3E;
+    &#x3C;Label width=&#x22;10%&#x22; class=&#x22;fa lightgrey small&#x22; text=&#x22;&#x26;#xf078;&#x22;&#x3E;&#x3C;/Label&#x3E;
   &#x3C;/FlexboxLayout&#x3E;
 
   &#x3C;!-- yowl --&#x3E;
@@ -202,7 +202,9 @@ providers: [
   the button is pressed:</p>
 
 <pre><code>
-  &#x3C;Button class=&#x22;ei&#x22; text=&#x22;&#x26;#xf029;&#x22; (tap)=&#x22;sendYowl()&#x22;&#x3E;&#x3C;/Button&#x3E;
+  &#x3C;ActionItem ios.position=&#x22;right&#x22; (tap)=&#x22;sendYowl()&#x22;&#x3E;
+        &#x3C;Button class=&#x22;ei&#x22; text=&#x22;&#x26;#xf029;&#x22;&#x3E;&#x3C;/Button&#x3E;
+  &#x3C;/ActionItem&#x3E;
 </code></pre>
 
 <p>Now, let's wire up that sendYowl function in app/tabs/home/home.component.ts. Now we can leverage the model we created earlier.
