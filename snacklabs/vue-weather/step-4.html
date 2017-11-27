@@ -35,7 +35,7 @@ the License.
     
 
     <p>Now that you have set your simulators to listen for location data, 
-        go back to Sidekick's plugin pane and install the Verified Geolocation plugin.</p>
+        we need to install a plugin to get the app's geolocation.</p>
 
     <aside class="warning">
         <p>Make sure that you use the 3.0.1 version of the Geolocation plugin
@@ -86,7 +86,7 @@ the License.
     <p>Next, we can get the city based on the latitude and longitude passed back from the Geolocation routine. 
         At the top of the file, add one more const:</p>
     <pre>const http = require("http");</pre>
-    <p>Then use an open API to get the location name, based on the latitude and longitude. Complete the getMyCity() method:</p>
+    <p>Then use an open API to get the location name, based on the latitude and longitude, by completing the getMyCity() method:</p>
 
     <pre>
             console.log(lat,long)
@@ -100,7 +100,7 @@ the License.
             })
     </pre>
 
-    <p>You should be able to see the name of the city being returned by this API call as well as your simulator's preset latitude and longitude.</p>
+    <p>In your terminal, you should be able to see the name of the city being returned by this API call as well as your simulator's preset latitude and longitude.</p>
    
 
     

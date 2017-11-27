@@ -21,43 +21,36 @@ the License.
     <style include="step-style"></style>
     <style include="syntax-style"></style>
     
-    <p>As we did in the first Snacklab, to create our NativeScript app, we are going to leverage Sidekick, a tool that helps you quickly get up and running to
-      build mobile apps. Get started by downloading Sidekick and completing all the installation steps listed <a href="https://www.nativescript.org/nativescript-sidekick">here</a>.
-      Once everything is installed, scaffold your app by choosing the new 'Vue' template. 
+    <p>In this Snacklab, to create our NativeScript app, we are going to build using the NativeScript CLI. 
+      Get started by installing the NativeScript CLI by following <a href="https://docs.nativescript.org/start/quick-setup">this installation guide</a>. 
+      Once everything is installed as per those instructions, scaffold your app by navigating to a folder on your computer where you want your codebase to reside, 
+      and type 'tns create clean-weather --template nativescript-vue-template'. 
+      This command will create a template-based app using the Vue plugin. For more information, see <a href="http://www.nativescript-vue.org">the NativeScript-Vue docs</a>.
     </p>
 
-    <p>Open Sidekick and click the blue 'Create' button. You are prompted to create a new app. Name your new app CleanWeather and
-      select 'NativeScript + JavaScript' and ensure that the 'Blank' template is selected, then wait for your app to be scaffolded.</p>
-
-      <aside class="special">
-        <p>
-          While we're using Sidekick to scaffold a plain JavaScript app, you can also play with a Vue integration using the experimental Vue template in the <a href="http://play.nativescript.org">NativeScript Playground</a>.
-        </p>
-      </aside>
+    <p>Navigate to the folder where you created your app and open the project in your favorite IDE. We like Visual Studio Code, but any IDE is fine.
+    You can view your app in an emulator by typing 'tns run ios' or 'tns run android'. Out of the box you'll see a whimsical NativeScript app powered by Vue!</p> 
   
-    <img src="images/2.png" style="border: 1px lightgray solid">
+    <img src="images/2.png"  style="max-width:300px;border: 1px lightgray solid">
 
-    <p>What just happened? To see your app in a local emulator, make sure that an emulator is open, and then select <b>Run > Run on Device</b>.
-      The emulator that you have open will be listed in the following screen so select it and then select 'Local Build' and
-      'Run on Device'.</p>
+    <p>Take a look at the various views available in this sample app. Swap out the initial view by 
+      opening the inner 'package.json' file and changing the "main" key: 
+      changing "main": "app" to "main": "app-with-list-view" changes the initial 
+      view to a reddit-powered list. Play around a little and explore by switching the initial file.
+    </p>
 
+    <img src="images/3.png"  style="max-width:300px;border: 1px lightgray solid">
+    
       <aside class="special">
           <p>
             Why not TypeScript? At the moment, the NativeScript-Vue's integration is purely JavaScript based. Watch this space for upcoming tutorials using TypeScript, coming soon!            
           </p>
         </aside>
 
-    <img src="images/3.png" style="border: 1px lightgray solid">
-
-    <p>If all went well, you should see the app on the local emulator.</p>
-
-    <img src="images/4.png" style="max-width:300px;border: 1px lightgray solid">
-
-    <p>Congratulations, you have a new NativeScript app ready to work on! Now, let's make your workflow even easier. Go back to your app's 'General' screen and select 'Livesync' at the top. With
-      your emulator still open, toggle the switch for livesync to 'on' for 
-      the emulator you are currently using. Now, when you make changes in your code, you will be able to see the emulator refresh automatically without having to rerun it manually.</p>
-
-    <p>Now, with your emulation environment set up, you're ready to start development. Open the codebase that you scaffolded earlier in your favorite editor - we recommend Visual Studio Code.</p>
+    
+    <p>Congratulations, you have a new NativeScript-Vue app ready to work on! 
+      By running your app using the NativeScript CLI, the app should refresh using LiveSync each time you make code changes
+      since you are running it using 'tns run'. Now, with your emulation environment set up, you're ready to start development.</p>
   
     <aside class="special">
         <p>
